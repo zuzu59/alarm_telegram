@@ -1,6 +1,6 @@
 # alarm_telegram
 Petit projet d'envois d'alarmes sur Telegram
-zf200501.1545
+zf200501.2035
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -34,6 +34,8 @@ Pour la protection du token, c'est *Keybase* qui sera utilisé. mais *keybase* n
 # Sources
 
 https://thingsboard.io/docs/iot-gateway/integration-with-telegram-bot/
+https://apple.stackexchange.com/questions/54329/can-i-get-the-cpu-temperature-and-fan-speed-from-the-command-line-in-os-x
+https://github.com/Chris911/iStats
 
 
 
