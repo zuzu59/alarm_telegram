@@ -8,6 +8,8 @@ zf200501.2035
 - [Buts](#buts)
 - [Problématiques](#problmatiques)
 - [Moyens](#moyens)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
 - [Sources](#sources)
 
 <!-- /TOC -->
@@ -29,6 +31,40 @@ Pour pouvoir envoyer un message sur Telegram, il faut avoir un *token* et autori
 Un *bash script*, qui est lancé par un *crontab* à intervalles réguliers, scrute une *valeur* et envoie un message sur Telegram si la *consigne* a été dépassée.
 
 Pour la protection du token, c'est *Keybase* qui sera utilisé. mais *keybase* ne va pas tourner sur les serveurs ou raspis car c'est des *scripts* lancés par le *crontab*. Il faudra donc les sauvegarder dans un fichier de *secrets* sur la machine et le protéger en conséquence.
+
+
+# Installation
+Pour pouvoir *lire* la température en ligne de commande sur MAC OS il faut installer *istats* avec:
+```
+sudo gem install iStats
+```
+puis la lire avec:
+```
+istats cpu temp  | awk '{print $3}' | sed "s/°C//g"
+```
+
+Pour pouvoir *envoyer* des alarmes sur Telegram depuis le *crontab* il faut copier le fichier des *secrets* dans le dossier des scripts:
+```
+cp /keybase/private/zuzu59/secrets_alarm_telegram_zf.sh .
+```
+
+
+# Utilisation
+Pour tester en temps réel les envois on peut faire:
+```
+watch './alarm_temp_macos.sh'
+```
+Puis en *stressant* le CPU dans une autre console avec:
+```
+yes >/dev/null
+```
+Pour l'utiliser après en tâche de fond, il faut le mettre dans le *crontab*:
+```
+crontab -e
+```
+```
+* * * * * /Users/zuzu/dev-zf/alarm_telegram/alarm_temp_macos.sh
+```
 
 
 # Sources
