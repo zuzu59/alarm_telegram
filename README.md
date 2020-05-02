@@ -1,6 +1,6 @@
 # alarm_telegram
-Petit projet d'envois d'alarmes sur Telegram
-zf200501.2035
+Petit projet d'envois simple d'alarmes sur Telegram
+zf200502.1615
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -34,6 +34,7 @@ Pour la protection du token, c'est *Keybase* qui sera utilisé. mais *keybase* n
 
 
 # Installation
+
 Pour pouvoir *lire* la température en ligne de commande sur MAC OS il faut installer *istats* avec:
 ```
 sudo gem install iStats
@@ -50,6 +51,7 @@ cp /keybase/private/zuzu59/secrets_alarm_telegram_zf.sh .
 
 
 # Utilisation
+
 Pour tester en temps réel les envois on peut faire:
 ```
 watch './alarm_temp_macos.sh'
