@@ -1,42 +1,43 @@
 #!/bin/bash
 #Petit script pour envoyer simplement un message sur Telegram quand le disque devient pleins
 #Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-#zf200502.1857
+#zf200502.1923
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
 #https://www.system-linux.eu/index.php?post/2009/01/17/Operation-mathematique-simple-avec-Bash
 
 
-# watch './alarm_temp_raspiz.sh'
-# yes >/dev/null
+# watch './alarm_disque_noc-test.sh'
+# dd if=/dev/zero of=bigfile1 bs=1M count=1000
 
 #cp /keybase/private/zuzu59/secrets_alarm_telegram_zf.sh .
 #crontab -e
-#* * * * * /home/pi/alarm_telegram/alarm_temp_raspiz.sh
+#* * * * * /home/czufferey/alarm_telegram/alarm_disque_noc-test.sh
 
 #ZVAL=$(/usr/local/bin/istats cpu temp  | /usr/bin/awk '{print $3}' | /usr/bin/sed "s/°C//g")
-ZVAL=`echo "scale=2;$(cat /sys/class/thermal/thermal_zone0/temp)/1000" | /usr/bin/bc -l`
-ZCONSIGN_ON=70.0
-ZHYSTERESE=3.0
+#ZVAL=`echo "scale=2;$(cat /sys/class/thermal/thermal_zone0/temp)/1000" | /usr/bin/bc -l`
+ZVAL=$(/bin/df -k |/bin/grep /dev/vda1 |/usr/bin/awk '{print $4}')
+ZCONSIGN_ON=10000000
+ZHYSTERESE=10000
 ZCONSIGN_OFF=`echo "$ZCONSIGN_ON-$ZHYSTERESE" | /usr/bin/bc -l`
-ZFLAG=/tmp/alarm_temp.txt
+ZFLAG=/tmp/alarm_disk.txt
 echo $ZVAL
 
-if (( $(echo "$ZVAL > $ZCONSIGN_ON" | /usr/bin/bc -l) )) ; then
+if (( $(echo "$ZVAL < $ZCONSIGN_ON" | /usr/bin/bc -l) )) ; then
   if [[ -f $ZFLAG ]] ; then
-    echo "Alarm déjà envoyée"
+    echo "Alarme déjà envoyée"
   else
     /usr/bin/touch $ZFLAG
-    echo "Alarm, alarm, c'est trop chaud !"
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C'
+    echo "Alarme, alarme, y'a presque plus de place disque !"
+    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, alarme manque place disque, '$ZVAL'kB'
   fi
 else
-  if (( $(echo "$ZVAL < $ZCONSIGN_OFF" | /usr/bin/bc -l) )) ; then
+  if (( $(echo "$ZVAL > $ZCONSIGN_OFF" | /usr/bin/bc -l) )) ; then
     if [[ -f $ZFLAG ]] ; then
       rm $ZFLAG
       echo "retour à la normale !"
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C'
+      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, retour à la normale, '$ZVAL'kB'
     fi
   fi
   echo "c'est tout ok !"
