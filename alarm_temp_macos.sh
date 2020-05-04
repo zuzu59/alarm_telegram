@@ -1,7 +1,7 @@
 #!/bin/bash
 #Petit script pour envoyer simplement un message sur Telegram quand la température du CPU du MAC dépasse la consigne
 #Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-#zf200504.0931
+#zf200504.1030
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -22,7 +22,7 @@
 
 
 ZVAL=$(/usr/local/bin/istats cpu temp  | /usr/bin/awk '{print $3}' | /usr/bin/sed "s/°C//g")
-ZCONSIGN_ON=62.0
+ZCONSIGN_ON=65.0
 ZHYSTERESE=4.0
 ZCONSIGN_OFF=`echo "$ZCONSIGN_ON-$ZHYSTERESE" | /usr/bin/bc -l`
 ZFLAG=/tmp/alarm_temp.txt
