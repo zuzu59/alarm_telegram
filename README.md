@@ -1,6 +1,6 @@
 # alarm_telegram
 Petit projet d'envois simple d'alarmes sur Telegram
-zf200504.0948
+zf200504.0958
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:0 orderedList:0 -->
 
@@ -36,23 +36,22 @@ Pour pouvoir envoyer un message sur Telegram, il faut avoir un *token* et autori
 
 Un *bash script*, qui est lancé par un *crontab* à intervalles réguliers, scrute une *valeur* et envoie un message sur Telegram si la *consigne* a été dépassée.
 
-Pour la protection du token, c'est *Keybase* qui sera utilisé. mais *keybase* ne va pas tourner sur les serveurs ou raspis car c'est des *scripts* lancés par le *crontab*. Il faudra donc les sauvegarder dans un fichier de *secrets* sur la machine et le protéger en conséquence.
+Pour la protection du token, c'est *Keybase* qui sera utilisé. mais *Keybase* ne va pas tourner sur les serveurs ou raspis car c'est des *scripts* lancés par le *crontab*. Il faudra donc les sauvegarder dans un fichier de *secrets* sur la machine et le protéger en conséquence.
 
 
 # Installation
 
-Pour pouvoir *lire* la température en ligne de commande sur MAC OS il faut installer *istats* avec:
+Pour pouvoir *envoyer* des alarmes sur Telegram depuis le *crontab* il faut créer le fichier des *secrets* sur Keybase avec les bons secrets:
 ```
-sudo gem install iStats
+secrets_alarm_telegram_zf.sh
 ```
-puis la lire avec:
-```
-istats cpu temp  | awk '{print $3}' | sed "s/°C//g"
-```
-
-Pour pouvoir *envoyer* des alarmes sur Telegram depuis le *crontab* il faut copier le fichier des *secrets* dans le dossier des scripts:
+puis le copier dans le dossier des scripts *alarm_telegram* sur la machine remote:
 ```
 cp /keybase/private/zuzu59/secrets_alarm_telegram_zf.sh .
+```
+Pour tester le bon fonctionnement d'envoi d'alarmes sur Telegram on peut faire:
+```
+./send_alarm_telegram.sh 'alarme feu'
 ```
 
 
@@ -82,7 +81,7 @@ crontab -e
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/raspi-arlam-temp.png)
 
-Exemple de sorties d'alarme sur telegram
+Exemple de sorties d'alarme de température sur telegram
 </center>
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/raspi-monitor1.png)
@@ -117,6 +116,11 @@ crontab -e
 * * * * * /Users/zuzu/dev-zf/alarm_telegram/alarm_temp_macos.sh
 ```
 
+<br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/mac-arlam-temp.png)
+
+Exemple de sorties d'alarme de température sur telegram
+</center>
+
 
 ## Alarmes disque sur NOC-test
 
@@ -145,7 +149,7 @@ crontab -e
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/noc-test-alarm-disk.png)
 
-Exemple de sorties d'alarme sur telegram
+Exemple de sorties d'alarme d'espace disque sur telegram
 </center>
 
 
