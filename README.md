@@ -2,23 +2,22 @@
 Petit projet d'envois simple d'alarmes sur Telegram
 zf200504.1431
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
 
-- [alarm_telegram](#alarmtelegram)
+## Table of Contents
 - [Buts](#buts)
-- [Problématiques](#problmatiques)
+- [Problématiques](#problématiques)
 - [Moyens](#moyens)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-	- [Alarmes température sur raspis](#alarmes-temprature-sur-raspis)
-	- [Alarmes température sur MAC](#alarmes-temprature-sur-mac)
-	- [Alarmes disque sur NOC-test](#alarmes-disque-sur-noc-test)
+  - [Alarmes température sur raspis](#alarmes-température-sur-raspis)
+  - [Alarmes température sur MAC](#alarmes-température-sur-mac)
+  - [Alarmes disque sur NOC-test](#alarmes-disque-sur-noc-test)
 - [Sources](#sources)
 
 <!-- /TOC -->
 
 <br><br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/icone_alarm_small.jpg)</center>
-
 
 # Buts
 
