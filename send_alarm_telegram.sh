@@ -1,11 +1,11 @@
 #!/bin/bash
 #Petit script pour envoyer une alarme sur Telegram
-#zf200502.1617
+#zf200504.1117
 
 #Usage:
 #./send_alarm_telegram.sh 'alarme feu'
 
-source $(/usr/bin/dirname $0)/secrets_alarm_telegram_zf.sh
+source $(/usr/bin/dirname $0)/secrets_alarm_telegram.sh
 
 export alarm_telegram_zf_message='zuzu_alert-175350'
 
