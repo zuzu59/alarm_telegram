@@ -1,6 +1,6 @@
 # alarm_telegram
 Petit projet d'envois simple d'alarmes sur Telegram
-zf200504.1000
+zf200504.1001
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:0 orderedList:0 -->
 
@@ -81,7 +81,7 @@ crontab -e
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/raspi-alarm-temp.png)
 
-Exemple de sorties d'alarme de température sur telegram
+Exemple de sorties d'alarmes de température sur telegram
 </center>
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/raspi-monitor1.png)
@@ -118,7 +118,7 @@ crontab -e
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/mac-alarm-temp.png)
 
-Exemple de sorties d'alarme de température sur telegram
+Exemple de sorties d'alarmes de température sur telegram
 </center>
 
 
@@ -149,7 +149,7 @@ crontab -e
 
 <br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/noc-test-alarm-disk.png)
 
-Exemple de sorties d'alarme d'espace disque sur telegram
+Exemple de sorties d'alarmes d'espace disque sur telegram
 </center>
 
 
