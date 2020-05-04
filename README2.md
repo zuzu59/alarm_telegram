@@ -6,22 +6,30 @@ To understand how Github deal with accentued chars.
 ## Table of Contents
 - [Test file](#test-file)
   - [Les élèves](#les-élèves)
-  - [Some specific chars: ë ä ö ü](#some-specific-chars-ë-ü)
-  - [Some specific chars 2: é è à](#some-specific-chars-2-é-è-à)
-  - [Some specific chars 3: õ ã ẽ ũ](#some-specific-chars-3-)
+  - [Some specific chars: à â](#some-specific-chars-à-â)
+  - [Some specific chars 2: é è ê ë](#some-specific-chars-2-é-è-ê-ë)
   - [Some specific chars 4: È É À](#some-specific-chars-4-è-é-à)
-  - [Some specific chars 5: æ, œ et ç](#some-specific-chars-5-æ-œ-et-ç)
+  - [Some specific chars 3: î ï](#some-specific-chars-3-î-ï)
+  - [Some specific chars 3: ô](#some-specific-chars-3-ô)
+  - [Some specific chars 3: ù û ü](#some-specific-chars-3-ù-û-ü)
+  - [Some specific chars 5: æ œ ç](#some-specific-chars-5-æ-œ-ç)
 
 <!-- /TOC -->
+
+
 ## Les élèves
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-## Some specific chars: ë ä ö ü 
+## Some specific chars: à â 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-## Some specific chars 2: é è à
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-## Some specific chars 3: õ ã ẽ ũ
+## Some specific chars 2: é è ê ë
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ## Some specific chars 4: È É À
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-## Some specific chars 5: æ, œ et ç
+## Some specific chars 3: î ï
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+## Some specific chars 3: ô
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+## Some specific chars 3: ù û ü
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+## Some specific chars 5: æ œ ç
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
