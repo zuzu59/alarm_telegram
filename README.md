@@ -1,15 +1,17 @@
 # alarm_telegram
-Petit projet d'envois simple d'alarmes sur Telegram
-zf200504.1431
+Envois, de manière simple, des message d'alarmes sur Telegram
+zf200505.1013
 
-<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
+<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:0 title:1 -->
 
 ## Table of Contents
+- [alarm_telegram](#alarmtelegram)
 - [Buts](#buts)
 - [Problématiques](#problématiques)
 - [Moyens](#moyens)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
+  - [Envoi de messages sur Telegram via un script bash](#envoi-de-messages-sur-telegram-via-un-script-bash)
   - [Alarmes température sur raspis](#alarmes-température-sur-raspis)
   - [Alarmes température sur MAC](#alarmes-température-sur-mac)
   - [Alarmes disque sur NOC-test](#alarmes-disque-sur-noc-test)
@@ -56,6 +58,22 @@ Pour tester le bon fonctionnement d'envoi d'alarmes sur Telegram on peut faire:
 
 # Utilisation
 
+## Envoi de messages sur Telegram via un script bash
+
+On peut maintenant envoyer très facilement un *message* sur Telegram avec ce script bash:
+```
+./send_alarm_telegram.sh 'alarme feu'
+```
+Le destinataire étant dans le fichier des *secrets*:
+```
+secrets_alarm_telegram_zf.sh
+```
+**ATTENTION:** s'il le message comporte des apostrophes, il faut les emballer dans des guillemets (***apostrophe, guillemet, apostrophe, guillemet, apostrophe***):
+```
+./send_alarm_telegram.sh 'alarme feu, c'"'"'est trop chaud !'
+```
+
+
 ## Alarmes température sur raspis
 
 Il est très facile de *monitorer* la température d'un raspi. La température se trouve dans le fichier:
@@ -70,7 +88,7 @@ Puis en *stressant* le CPU dans une autre console avec:
 ```
 yes >/dev/null
 ```
-Pour l'utiliser après en tâche de fond, il faut le mettre dans le *crontab*:
+Pour l'utiliser après en tâche de fond, donc de vérifier les consignes toutes les minutes, il faut le mettre dans le *crontab*:
 ```
 crontab -e
 ```
@@ -107,7 +125,7 @@ Puis en *stressant* le CPU dans une autre console avec:
 ```
 yes >/dev/null
 ```
-Pour l'utiliser après en tâche de fond, il faut le mettre dans le *crontab*:
+Pour l'utiliser après en tâche de fond, donc de vérifier les consignes toutes les minutes, il faut le mettre dans le *crontab*:
 ```
 crontab -e
 ```
@@ -138,7 +156,7 @@ dd if=/dev/zero of=bigfile2 bs=1M count=1000
 dd if=/dev/zero of=bigfile3 bs=1M count=1000
 dd if=/dev/zero of=bigfile4 bs=1M count=1000
 ```
-Pour l'utiliser après en tâche de fond, il faut le mettre dans le *crontab*:
+Pour l'utiliser après en tâche de fond, donc de vérifier les consignes toutes les minutes, il faut le mettre dans le *crontab*:
 ```
 crontab -e
 ```
