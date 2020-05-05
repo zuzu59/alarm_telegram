@@ -1,6 +1,6 @@
 # alarm_telegram
-Envois, de manière simple, des message d'alarmes sur Telegram
-zf200505.1021
+Envois, de manière simple, des message d'alarmes sur Telegram<br>
+zf200505.1023
 
 <!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
 
@@ -24,7 +24,7 @@ zf200505.1021
 
 Envoyer très simplement un message sur Telegram quand une valeur est hors consigne.
 
-Le but ici est de faire un système très simple, pas une *usine à gaz*, afin de pouvoir justement *dédoubler* l'usine à gaz dans le cas où elle ne fonctionne plus !
+Le but ici est de faire un système très simple, pas une *usine à gaz*, afin de pouvoir justement *dédoubler* l'usine à gaz dans le cas où elle ne fonctionnerait plus !
 
 
 # Problématiques
