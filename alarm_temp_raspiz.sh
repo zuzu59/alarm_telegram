@@ -1,7 +1,7 @@
 #!/bin/bash
 #Petit script pour envoyer simplement un message sur Telegram quand la température du CPU du raspi dépasse la consigne
 #Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-#zf200506.1152
+#zf200506.1433
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -31,18 +31,18 @@ if (( $(echo "$ZVAL > $ZCONSIGN_ON" | /usr/bin/bc -l) )) ; then
   else
     /usr/bin/touch $ZFLAG
     echo "Alarm, alarm, c'est trop chaud !"
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C'
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C' 2
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C' 3
+    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C' zf
+    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C' ctrl_alrm_zf
+    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, alarme température CPU, '$ZVAL'°C' ctrl_alrm_pi
   fi
 else
   if (( $(echo "$ZVAL < $ZCONSIGN_OFF" | /usr/bin/bc -l) )) ; then
     if [[ -f $ZFLAG ]] ; then
       rm $ZFLAG
       echo "retour à la normale !"
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C'
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C' 2
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C' 3
+      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C' zf
+      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C' ctrl_alrm_zf
+      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Raspiz, retour à la normale CPU, '$ZVAL'°C' ctrl_alrm_pi
     fi
   fi
   echo "c'est tout ok !"
