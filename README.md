@@ -1,6 +1,6 @@
 # alarm_telegram
 Envois, de manière simple, des message d'alarmes sur Telegram<br>
-zf200505.1023
+zf200506.1141
 
 <!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
 
@@ -9,6 +9,7 @@ zf200505.1023
 - [Problématiques](#problématiques)
 - [Moyens](#moyens)
 - [Installation](#installation)
+  - [Configuration de Telegram](#configuration-de-telegram)
 - [Utilisation](#utilisation)
   - [Envoi de messages sur Telegram via un script bash](#envoi-de-messages-sur-telegram-via-un-script-bash)
   - [Alarmes température sur raspis](#alarmes-température-sur-raspis)
@@ -53,6 +54,14 @@ Pour tester le bon fonctionnement d'envoi d'alarmes sur Telegram on peut faire:
 ```
 ./send_alarm_telegram.sh 'alarme feu'
 ```
+
+## Configuration de Telegram
+
+Tout se trouve dans ma petite documentation:
+
+*Envoyer des messages sur Telegram avec un script bash, mais c'est si simple ;-)*
+
+https://drive.google.com/open?id=11JITUwK1ZX5A7dJ1GbhYlZk0-kKJPM1BUL9qpyYDjfs
 
 
 # Utilisation
