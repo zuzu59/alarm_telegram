@@ -61,9 +61,17 @@ Pour tester le bon fonctionnement d'envoi d'alarmes sur Telegram on peut faire:
 
 On peut maintenant envoyer très facilement un *message* sur Telegram avec ce script bash:
 ```
+./send_alarm_telegram.sh 'alarme feu' [de 2 à n, rang des destinataires dans les secrets)]
+```
+Donc pour le destinataire de défaut:
+```
 ./send_alarm_telegram.sh 'alarme feu'
 ```
-Le destinataire étant dans le fichier des *secrets*:
+ou pour le destinataire de rang 2:
+```
+./send_alarm_telegram.sh 'alarme feu' 2
+```
+Les destinataire étant dans le fichier des *secrets*:
 ```
 secrets_alarm_telegram_zf.sh
 ```

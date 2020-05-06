@@ -1,15 +1,14 @@
 #!/bin/bash
 #Petit script pour envoyer une alarme sur Telegram
-#zf200506.0902
+#zf200506.1100
 
 #Usage:
-#./send_alarm_telegram.sh 'alarme feu'
+#./send_alarm_telegram.sh 'alarme feu' [de 2 à n, rang des destinataires dans les secrets)]
+#./send_alarm_telegram.sh 'alarme feu' 2
 
-source $(/usr/bin/dirname $0)/secrets_alarm_telegram.sh
+source $(/usr/bin/dirname $0)/secrets_alarm_telegram.sh > /dev/null
 
-export alarm_telegram_zf_message='zuzu_alert-175350'
+dest_id="alarm_telegram_dest$2"
 
-#curl -s --data chat_id=$alarm_telegram_zf_dest --data-urlencode text="$alarm_telegram_zf_message" "https://api.telegram.org/bot$alarm_telegram_zf_token/sendMessage" > /dev/null
-/usr/bin/curl -s --data chat_id=$alarm_telegram_dest1 --data-urlencode text="$1" "https://api.telegram.org/bot$alarm_telegram_token/sendMessage" > /dev/null
-/usr/bin/curl -s --data chat_id=$alarm_telegram_dest2 --data-urlencode text="$1" "https://api.telegram.org/bot$alarm_telegram_token/sendMessage" > /dev/null
+/usr/bin/curl -s --data chat_id=${!dest_id} --data-urlencode text="$1" "https://api.telegram.org/bot$alarm_telegram_token/sendMessage" > /dev/null
 
