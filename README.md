@@ -1,6 +1,6 @@
 # alarm_telegram
 Envois, de manière simple, des message d'alarmes sur Telegram<br>
-zf200506.1141
+zf200506.1427
 
 <!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
 
@@ -70,23 +70,23 @@ https://drive.google.com/open?id=11JITUwK1ZX5A7dJ1GbhYlZk0-kKJPM1BUL9qpyYDjfs
 
 On peut maintenant envoyer très facilement un *message* sur Telegram avec ce script bash:
 ```
-./send_alarm_telegram.sh 'alarme feu' [de 2 à n, rang des destinataires dans les secrets)]
+./send_alarm_telegram.sh 'alarme feu' <suffixe xxx du destinataire (alarm_telegram_dest_xxx)>
 ```
-Donc pour le destinataire de défaut:
+Donc pour le destinataire zf:
 ```
-./send_alarm_telegram.sh 'alarme feu'
+./send_alarm_telegram.sh 'alarme feu' zf
 ```
-ou pour le destinataire de rang 2:
+ou pour le destinataire Centrale d'alarmes zf:
 ```
-./send_alarm_telegram.sh 'alarme feu' 2
+./send_alarm_telegram.sh 'alarme feu' ctrl_alrm_zf
 ```
-Les destinataire étant dans le fichier des *secrets*:
+Les destinataires se trouvent dans le fichier des *secrets*:
 ```
-secrets_alarm_telegram_zf.sh
+secrets_alarm_telegram.sh
 ```
 **ATTENTION:** s'il le message comporte des apostrophes, il faut les emballer dans des guillemets (***apostrophe, guillemet, apostrophe, guillemet, apostrophe***):
 ```
-./send_alarm_telegram.sh 'alarme feu, c'"'"'est trop chaud !'
+./send_alarm_telegram.sh 'alarme feu, c'"'"'est trop chaud !' zf
 ```
 
 
