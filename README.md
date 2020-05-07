@@ -1,22 +1,20 @@
 # alarm_telegram
 Envois, de manière simple, des message d'alarmes sur Telegram<br>
-zf200506.1427
+zf200507.1851
 
-<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
-
+<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 charForUnorderedList:* -->
 ## Table of Contents
-- [Buts](#buts)
-- [Problématiques](#problématiques)
-- [Moyens](#moyens)
-- [Installation](#installation)
-  - [Configuration de Telegram](#configuration-de-telegram)
-- [Utilisation](#utilisation)
-  - [Envoi de messages sur Telegram via un script bash](#envoi-de-messages-sur-telegram-via-un-script-bash)
-  - [Alarmes température sur raspis](#alarmes-température-sur-raspis)
-  - [Alarmes température sur MAC](#alarmes-température-sur-mac)
-  - [Alarmes disque sur NOC-test](#alarmes-disque-sur-noc-test)
-- [Sources](#sources)
-
+* [Buts](#buts)
+* [Problématiques](#problématiques)
+* [Moyens](#moyens)
+* [Installation](#installation)
+  * [Configuration de Telegram](#configuration-de-telegram)
+* [Utilisation](#utilisation)
+  * [Envoi de messages sur Telegram via un script bash](#envoi-de-messages-sur-telegram-via-un-script-bash)
+  * [Alarmes température sur raspis](#alarmes-température-sur-raspis)
+  * [Alarmes température sur MAC](#alarmes-température-sur-mac)
+  * [Alarmes disque sur NOC-test](#alarmes-disque-sur-noc-test)
+* [Sources](#sources)
 <!-- /TOC -->
 
 <br><br><center>![Image](https://raw.githubusercontent.com/zuzu59/alarm_telegram/master/img/icone_alarm_small.jpg)</center>
