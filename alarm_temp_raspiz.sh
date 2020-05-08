@@ -1,7 +1,7 @@
 #!/bin/bash
 #Petit script pour envoyer simplement un message sur Telegram quand la température du CPU du raspi dépasse la consigne
 #Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-#zf200506.1433
+#zf200508.1505
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -15,7 +15,7 @@
 
 #cp /keybase/private/zuzu59/secrets_alarm_telegram_zf.sh .
 #crontab -e
-#* * * * * /home/pi/alarm_telegram/alarm_temp_raspiz.sh
+#* * * * * /home/pi/alarm_telegram/alarm_temp_raspiz.sh > /dev/null 2>&1 || true
 
 #ZVAL=$(/usr/local/bin/istats cpu temp  | /usr/bin/awk '{print $3}' | /usr/bin/sed "s/°C//g")
 ZVAL=`echo "scale=2;$(cat /sys/class/thermal/thermal_zone0/temp)/1000" | /usr/bin/bc -l`
