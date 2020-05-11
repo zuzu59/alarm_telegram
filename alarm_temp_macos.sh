@@ -1,7 +1,7 @@
 #!/bin/bash
 #Petit script pour envoyer simplement un message sur Telegram quand la température du CPU du MAC dépasse la consigne
 #Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-#zf200508.1505
+#zf200511.0944
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -34,7 +34,7 @@ if (( $(echo "$ZVAL > $ZCONSIGN_ON" | /usr/bin/bc -l) )) ; then
   else
     /usr/bin/touch $ZFLAG
     echo "Alarm, alarm, c'est trop chaud !"
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, alarme température CPU, '$ZVAL'°C' zf
+#    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, alarme température CPU, '$ZVAL'°C' zf
     $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, alarme température CPU, '$ZVAL'°C' ctrl_alrm_zf
   fi
 else
@@ -42,7 +42,7 @@ else
     if [[ -f $ZFLAG ]] ; then
       rm $ZFLAG
       echo "retour à la normale !"
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, retour à la normale CPU, '$ZVAL'°C' zf
+#      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, retour à la normale CPU, '$ZVAL'°C' zf
       $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'Macbookprozf, retour à la normale CPU, '$ZVAL'°C' ctrl_alrm_zf
     fi
   fi
