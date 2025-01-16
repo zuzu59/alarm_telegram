@@ -1,7 +1,7 @@
 #!/bin/bash
 # Petit script pour envoyer simplement un message sur Telegram quand le disque devient pleins
 # Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-# zf200501.1701, zf231211.2051, zf241031.1531, zf250116.1445
+# zf200501.1701, zf231211.2051, zf241031.1531, zf250116.1756
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -21,7 +21,7 @@
 ZVAL=$(/bin/du -b -d 0 /mnt/data/ | /usr/bin/awk '{print $1}')
 
 
-ZCONSIGN_ON=12390000000
+ZCONSIGN_ON=13409806593
 ZHYSTERESE=1000
 ZCONSIGN_OFF=`echo "$ZCONSIGN_ON-$ZHYSTERESE" | /usr/bin/bc -l`
 ZFLAG=/tmp/alarm_disk.txt
@@ -39,18 +39,18 @@ if (( $(echo "$ZVAL > $ZCONSIGN_ON" | /usr/bin/bc -l) )) ; then
     /usr/bin/touch $ZFLAG
     echo "Alarme, alarme, y'a presque plus de place disque !"
 #    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, alarme manque place disque, '$ZVAL'kB' zf
-    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'zuzu-test, alarme manque place disque, '$ZVAL'kB' ctrl_alrm_zf
+    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'zuzu-test, alarme manque place disque, '$RESTE' Bytes' ctrl_alrm_zf
 #    $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, alarme manque place disque, '$ZVAL'kB' ctrl_alrm_noc
   fi
 else
-  if (( $(echo "$ZVAL > $ZCONSIGN_OFF" | /usr/bin/bc -l) )) ; then
+#  if (( $(echo "$ZVAL > $ZCONSIGN_OFF" | /usr/bin/bc -l) )) ; then
     if [[ -f $ZFLAG ]] ; then
       rm $ZFLAG
       echo "retour à la normale !"
 #      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, retour à la normale, '$ZVAL'kB' zf
-      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'zuzu-test, retour à la normale, '$ZVAL'kB' ctrl_alrm_zf
+      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'zuzu-test, retour à la normale, '$RESTE' Bytes' ctrl_alrm_zf
 #      $(/usr/bin/dirname $0)/send_alarm_telegram.sh 'NOC-tst, retour à la normale, '$ZVAL'kB' ctrl_alrm_noc
     fi
-  fi
+#  fi
   echo "c'est tout ok !"
 fi
