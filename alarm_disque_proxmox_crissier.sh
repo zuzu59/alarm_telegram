@@ -1,7 +1,7 @@
 #!/bin/bash
 # Petit script pour envoyer simplement un message sur Telegram quand le disque devient pleins
 # Il y a aussi une détection, avec hystérèse, du retour à la normale afin d'éviter les oscillations proches de la consigne
-# zf251026.1551, zf251026.1624
+# zf251026.1551, zf251103.1924
 
 #Source: 
 #https://debian-facile.org/doc:programmation:shells:page-man-bash-iii-les-operateurs-de-comparaison-numerique
@@ -20,7 +20,7 @@
 #ZVAL=$(/bin/df -k |/bin/grep '/dev/vda1 ' |/usr/bin/awk '{print $4}')
 ZVAL=$(/bin/df -k |/bin/grep '/mnt/pve/ext-1' |/usr/bin/awk '{print $4}')
 #ZCONSIGN_ON=550000000
-ZCONSIGN_ON=80000000
+ZCONSIGN_ON=50000000
 ZHYSTERESE=100000
 ZCONSIGN_OFF=`echo "$ZCONSIGN_ON-$ZHYSTERESE" | /usr/bin/bc -l`
 ZFLAG=/tmp/alarm_disk.txt
